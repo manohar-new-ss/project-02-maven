@@ -6,7 +6,7 @@
   tasks: 
   - name: install Httpd server to the hosts 
     yum: 
-      name: httpd 
+      name: "{{ server }}" 
       state: present 
 
   - name: copy index.html to the folder 
