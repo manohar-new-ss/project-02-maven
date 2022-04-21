@@ -1,0 +1,30 @@
+#install httpd server in hosts and deploy index.html to the server /var/www/html/
+
+- hosts: all
+  become: true 
+  tasks: 
+  - name: install Httpd server to the hosts 
+    yum: 
+      name: Httpd 
+      state: present 
+
+  - name: copy index.html to the folder 
+    template: 
+      src: ~/index.html
+      dest: /var/www/html/
+      remote: yes 
+  
+  - name: start httpd server 
+    service: 
+      name: httpd 
+      state: started
+  
+  - name: install packages 
+    yum: 
+      name: [git, zip, unzip, tar, vim, tree]
+      state: present
+    tags: 
+    - packages 
+    - install 
+    
+      
