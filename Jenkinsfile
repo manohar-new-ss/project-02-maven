@@ -1,5 +1,5 @@
 # ansible, using password file, etc 
-
+# jenkins file to initiate the ansible to install httpd using yaml
 pipeline{
     agent any
 tools{
